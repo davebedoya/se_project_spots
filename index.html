@@ -43,20 +43,15 @@
         </section>
         <section class="cards page__section">
           <ul class="cards__list">
-
-          <template id="card-template">
-            <li class="card">
-              <img
-                src=""
-                alt=""
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Val Thorens</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-          </template>
+            <template id="card-template">
+              <li class="card">
+                <img src="" alt="" class="card__image" />
+                <div class="card__content">
+                  <h2 class="card__title">Val Thorens</h2>
+                  <button type="button" class="card__like-button"></button>
+                </div>
+              </li>
+            </template>
 
             <!-- <li class="card">
               <img
@@ -125,8 +120,9 @@
                 <h2 class="card__title">Mountain house</h2>
                 <button type="button" class="card__like-button"></button>
               </div>
+               </li>
+
                -->
-            </li>
           </ul>
         </section>
       </main>
@@ -135,7 +131,7 @@
       </footer>
       <div class="modal" id="edit-modal">
         <div class="modal__container">
-          <button type="submit" class="modal__close-btn"></button>
+          <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">Edit Profile</h2>
           <form name="edit-profile" class="modal__form">
             <label for="profile-name-input" class="modal__label">

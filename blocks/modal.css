@@ -38,6 +38,7 @@
   border-style: none;
   opacity: 40%;
   background-color: white;
+  cursor: pointer;
 }
 
 .modal__title {
@@ -83,6 +84,7 @@
   border-style: none;
   border-radius: 8px;
   color: rgba(252, 245, 229, 1);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {
