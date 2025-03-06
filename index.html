@@ -25,6 +25,7 @@
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
+
             <button type="button" class="profile__edit-button">
               <img
                 class="profile__pencil-icon"
@@ -45,7 +46,10 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
-                <img src="" alt="" class="card__image" />
+                <div class="card__image-container">
+                  <button type="button" class="card__delete-button"></button>
+                  <img src="" alt="" class="card__image" />
+                </div>
                 <div class="card__content">
                   <h2 class="card__title">Val Thorens</h2>
                   <button type="button" class="card__like-button"></button>
