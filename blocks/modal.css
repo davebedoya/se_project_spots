@@ -44,8 +44,6 @@
   max-height: 661px;
   height: auto;
   border-radius: 8px;
-
-  padding-bottom: 8px;
   display: block;
 }
 
@@ -62,6 +60,7 @@
   align-items: center;
   padding: 4px 8px;
   display: inline-block;
+  margin-top: 8px;
 }
 
 .modal__close-btn {
@@ -165,5 +164,14 @@
 
   .modal__submit-btn {
     width: 100%;
+  }
+
+  .modal__container_type_preview {
+    padding: 0 6px;
+  }
+
+  .modal__close-btn_type_preview {
+    top: -48px;
+    right: 0;
   }
 }
