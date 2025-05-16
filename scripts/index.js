@@ -46,11 +46,13 @@ const editModalDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 
+// Card Form Elements
 const cardModal = document.querySelector("#add-card-modal");
 const cardFormElement = cardModal.querySelector(".modal__form");
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
+const cardSubmitBtn = cardModal.querySelector(".modal__submit-btn");
 
 // Card Related Elements
 const cardTemplate = document.querySelector("#card-template");
@@ -123,11 +125,20 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardElement);
   closeModal(cardModal);
   evt.target.reset();
+  disableButton(cardSubmitBtn, settings);
 }
+
+//TODO - pass Settings object to the validations functions that are called in this file
 
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
+  //OPTIONAL
+  resetValidation(
+    editModal,
+    [editModalNameInput, editModalDescriptionInput],
+    settings
+  );
   openModal(editModal);
 });
 

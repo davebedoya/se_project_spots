@@ -124,6 +124,16 @@
   color: rgba(33, 33, 33, 0.3);
 }
 
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
+.modal__error {
+  /* To Do - Set-Up color and sizes */
+  display: block;
+  color: red;
+}
+
 .modal__submit-btn {
   padding: 18px 0;
   width: 156px;
@@ -132,6 +142,10 @@
   border-radius: 8px;
   color: rgba(252, 245, 229, 1);
   cursor: pointer;
+}
+
+.modal__submit-btn-disabled {
+  background-color: rgba(33, 33, 33, 0.5);
 }
 
 @media screen and (max-width: 627px) {
