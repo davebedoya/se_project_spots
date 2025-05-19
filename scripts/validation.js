@@ -1,5 +1,3 @@
-// Declaring a configuration object that contains the
-// necessary classes and selectors.
 const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
@@ -10,21 +8,14 @@ const settings = {
 };
 
 const showInputError = (formEl, inputEl, errorMsg, config) => {
-  // const errorMsgID = inputEl.id + "-error";
-  // const errorMsgEl = document.querySelector("#" + errorMsgID);
-  // or
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = errorMsg;
-  // console.log(errorMsgEl);
-  // Styling if needed add here
-  // inputEl.classList.add("modal__input_type_error");
   inputEl.classList.add(config.inputErrorClass);
 };
 
 const hideInputError = (formEl, inputEl, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = "";
-  // inputEl.classList.remove("modal__input_type_error");
   inputEl.classList.remove(config.inputErrorClass);
 };
 
@@ -52,13 +43,11 @@ const toggleButtonState = (inputList, buttonElement, config) => {
 
 const disableButton = (buttonElement, config) => {
   buttonElement.disabled = true;
-  // buttonElement.classList.add("modal__submit-btn-disabled");
   buttonElement.classList.add(config.inactiveButtonClass);
 };
 
 const enableButton = (buttonElement, config) => {
   buttonElement.disabled = false;
-  // buttonElement.classList.remove("modal__submit-btn-disabled");
   buttonElement.classList.remove(config.inactiveButtonClass);
 };
 
@@ -69,17 +58,12 @@ const resetValidation = (formEl, inputList, config) => {
   });
 };
 
-//TODO - use the settings object in all fucntions stead of hard coded strings
-
+//TODO - Use the settings object in all functions instead of hard codedstrings
 const setEventListeners = (formEl, config) => {
-  // const inputList = Array.from(formEl.querySelectorAll(".modal__input"));
-  // const buttonElement = formEl.querySelector(".modal__submit-btn");
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
-  // console.log(inputList);
-  // console.log(buttonElement);
-  //TODO handle intial States
 
+  //TODO- Uandle intial States
   toggleButtonState(inputList, buttonElement, config);
 
   inputList.forEach((inputEl) => {
@@ -90,11 +74,7 @@ const setEventListeners = (formEl, config) => {
   });
 };
 
-//
-
 const enableValidation = (config) => {
-  // const formList = Array.from(document.querySelectorAll(".modal__form"));
-  // console.log(config.formSelector);
   const formList = document.querySelectorAll(config.formSelector);
   formList.forEach((formEl) => {
     setEventListeners(formEl, config);
