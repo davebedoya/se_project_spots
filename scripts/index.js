@@ -110,7 +110,7 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  document.addEventListener("keydown", handleEscClose);
+  document.removeEventListener("keydown", handleEscClose);
 }
 
 // This is to close the modal with the ESC key
