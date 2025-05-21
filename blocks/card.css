@@ -6,6 +6,10 @@
   display: block;
 }
 
+.card__image:hover {
+  cursor: pointer;
+}
+
 .card__like-button {
   background-image: url(../images/heart.svg);
   width: 23px;
