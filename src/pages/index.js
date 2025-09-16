@@ -85,6 +85,9 @@ const avatarLinkInput = avatarModal.querySelector("#profile-avatar-input");
 const deleteModal = document.querySelector("#delete-modal");
 const deleteModalCloseBtn = deleteModal.querySelector(".modal__close-btn");
 const deleteFormElement = deleteModal.querySelector(".modal__form");
+const deleteModalCancelBtn = deleteModal.querySelector(
+  ".delete-modal-cancel-btn"
+);
 
 let currentUserId;
 
@@ -134,28 +137,30 @@ function handleLike(evt, id) {
       btn.classList.toggle("card__like-button_liked");
     })
     .catch(console.error);
-
-  // remove -evt.target.classList.toggle("("card__like-button_liked")
-  // 1. Check whether card is currently liked or not
-  // const isLiked = ??
-  // 2. call the change likeStatus Method, passing it appropoiate arguments
-  // 3. handle the response (.then and .catch)
-  // 4. in the .then toggle the  active class
 }
 
 deleteModalCloseBtn.addEventListener("click", () => {
   closeModal(deleteModal);
 });
 
+deleteModalCancelBtn.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
+
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  setButtonText(submitBtn, true, "Delete", "Deleting...");
   api
     .deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
       closeModal(deleteModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(submitBtn, false, "Delete", "Deleting...");
+    });
 }
 let selectedCard, selectedCardId;
 
@@ -198,9 +203,7 @@ function handleEscClose(event) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  // Change text content to "Saving..."
   const submitBtn = evt.submitter;
-  // submitBtn.textContent = "Saving...";
   setButtonText(submitBtn, true);
   api
     .editUserInfo({
@@ -216,13 +219,9 @@ function handleEditFormSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      // Change text content back to "Save"
-      // submitBtn.textContent = "Save";
       setButtonText(submitBtn, false);
     });
 }
-
-// TODO - implement loading text for al other submissions
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
@@ -254,6 +253,9 @@ function handleAvatarFormSubmit(evt) {
     .then((data) => {
       console.log(data.avatar);
       avatarImage.src = data.avatar;
+      avatarFormElement.reset();
+      avatarSubmitBtn.disabled = true;
+      closeModal(avatarModal);
     })
     .catch(console.error)
     .finally(() => {
