@@ -28,7 +28,7 @@ Spots is a mock interactive social media webpage designed for responsiveness acr
 
 You can view the project live on GitHub Pages:
 
-- [Spots on Github](https://itsdavidmatthew.github.io/se_project_spots/)
+- [Spots on Github](https://davebedoya.github.io/se_project_spots/)
 
 - [Screen recording](https://drive.google.com/file/d/12Qf9Ave55glWuNjoG9buiRZa2U0K2oZL/view?usp=sharing)
 
