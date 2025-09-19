@@ -254,7 +254,7 @@ function handleAvatarFormSubmit(evt) {
       console.log(data.avatar);
       avatarImage.src = data.avatar;
       avatarFormElement.reset();
-      avatarSubmitBtn.disabled = true;
+      disableButton(avatarSubmitBtn, settings);
       closeModal(avatarModal);
     })
     .catch(console.error)
